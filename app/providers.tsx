@@ -3,6 +3,7 @@
 
 import { CacheProvider } from '@chakra-ui/next-js'
 import { ChakraProvider } from '@chakra-ui/react'
+import { Rubik } from 'next/font/google';
 // 1. Import the extendTheme function
 import { extendTheme } from '@chakra-ui/react'
 
@@ -17,6 +18,7 @@ const colors = {
 
 export const theme = extendTheme({ colors })
 
+const rubik = Rubik({ subsets: ['latin'] });
 
 
 export function Providers({ 
@@ -26,6 +28,13 @@ export function Providers({
   }) {
   return (
     <CacheProvider>
+        <style jsx global>
+            {`
+            :root {
+                --font-rubik: ${rubik.style.fontFamily};
+            }
+            `}
+      </style>
       <ChakraProvider theme={theme}>
         {children}
       </ChakraProvider>
