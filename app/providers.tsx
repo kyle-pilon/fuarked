@@ -16,7 +16,12 @@ const colors = {
     },
 }
 
-export const theme = extendTheme({ colors })
+const config = {
+  initialColorMode: 'light',
+  useSystemColorMode: false,
+}
+
+export const theme = extendTheme({ colors, config })
 
 const rubik = Rubik({ subsets: ['latin'] });
 
